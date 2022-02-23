@@ -1,0 +1,24 @@
+{
+  "name": "ggreen.github.io",
+  "version": "1.0.0",
+  "description": "Profile page ",
+  "main": "GettyGreen.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeTtygreen/GGreen.github.io.git"
+  },
+  "keywords": [
+    "GG",
+    "Getty",
+    "Green"
+  ],
+  "author": "Nicholas Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeTtygreen/GGreen.github.io/issues"
+  },
+  "homepage": "https://github.com/GeTtygreen/GGreen.github.io#readme"
+}

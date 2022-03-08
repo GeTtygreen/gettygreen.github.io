@@ -5,23 +5,1359 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GGreen</title>
-    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Barriecito&family=Estonia&family=Fuzzy+Bubbles:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@300&family=Quintessential&family=Shizuru&display=swap" rel="stylesheet">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+      integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Barriecito&family=Comic+Neue&family=Estonia&family=Fuzzy+Bubbles:wght@400;700&family=Nunito:wght@400;700&family=Open+Sans:wght@300&family=Quintessential&family=Shadows+Into+Light&family=Shizuru&display=swap" rel="stylesheet">
     <style>
-        body{
-            margin:0;
-            padding:0;
-            font-family: 'Barriecito', cursive;
-            background-color:rgb(30, 126, 30);
-            color:yellow;
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0f0;
+        font-family: 'Comic Neue', cursive;
+
+      }
+      header {
+        position: relative;
+        width: 100%;
+        height: 10vh;
+        background: rgb(4, 41, 4);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        cursor: default;
+      }
+      header .row {
+        position: relative;
+        width: 100%;
+        top: -50%;
+        left: -35%;
+        right: 50%;
+        display: flex;
+        padding: 10px 0;
+        white-space: nowrap;
+        font-size: 64px;
+        transform: rotate(-10deg);
+      }
+      i {
+        color: rgb(1, 22, 1);
+        transition: 1s;
+        padding: 0 5px;
+        user-select: none;
+      }
+      i:hover {
+        color: #0f0;
+        transition: 0s;
+        text-shadow: 0 0 120px #0f0;
+      }
+      header .row div {
+        animation: animate1 80s linear infinite;
+        animation-delay: -80s;
+      }
+      header .row div:nth-child(2) {
+        animation: animate2 80s linear infinite;
+        animation-delay: -40s;
+      }
+      @keyframes animate1 {
+        0% {
+          transform: translateX(100%);
         }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      @keyframes animate2 {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-200%);
+        }
+      }
+      header .row:nth-child(even) div {
+        animation: animate3 80s linear infinite;
+        animation-delay: -80s;
+      }
+      header .row:nth-child(even) div:nth-child(2) {
+        animation: animate4 80s linear infinite;
+        animation-delay: -40s;
+      }
+      @keyframes animate3 {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      @keyframes animate4 {
+        0% {
+          transform: translateX(-200%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+      .head {
+        text-align: center;
+        background: rgb(29, 93, 29);
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .card {
+        position: relative;
+        width: 600px;
+        height: 450px;
+
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        transition: 0.5s;
+      }
+      .card .circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .card .circle:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(6, 65, 6);
+        clip-path: circle(120px at center);
+        transition: 0.5s;
+      }
+      .card:hover .circle:before {
+        background: rgb(90, 167, 90);
+        clip-path: circle(400px at center);
+      }
+      .card img {
+        position: absolute;
+        top: 2%;
+        left: 34%;
+        transform: translate(-50%-50%);
+        height: 300px;
+        pointer-events: none;
+        transition: 0.5s;
+      }
+      .card:hover img {
+        left: 72%;
+        height: 500px;
+      }
+      .card .content {
+        position: relative;
+        width: 50%;
+        left: 20%;
+        padding: 20px 20px 20px 40px;
+        transition: 0.5s;
+        opacity: 0.5;
+        visibility: hidden;
+        color: #0f0;
+      }
+      .card:hover .content {
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+      }
+      .card .content h2 {
+        color: peru;
+        /* text-transform: uppercase; */
+        font-size: 2em;
+        line-height: 1em;
+        margin-bottom:10px ;
+      }
+      .card .content p {
+        color: rgb(20, 42, 20);
+        margin-top:10px;
+        margin-bottom:10px;
+        
+      }
+      p:nth-child(2)
+      {
+
+        display:flex;
+        flex-direction: column;
+      }
+      .skills{
+        display:inline-block;
+        height:30px;
+        width:30px;
+        border-radius: 50%;
+      }
+      @media(max-width:991px)
+      {
+      .card
+      {
+        width: auto;
+        max-width:450px;
+        align-items: flex-start;
+      }
+      .card:hover
+      {
+        height:600px;
+      }
+      .card .content 
+      {
+        width: 100%;
+        left:0;
+        padding:30px;
+      }
+      .card:hover img 
+      {
+        top:70%;
+        left:50%;
+        height:300px;
+      }
+    }
+    input{
+      background-color:peru;
+      color:rgb(7, 46, 7);
+      width:100%;
+      height:30px;
+      font-size:1em;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 20px;
+
+    }
+    textarea{
+      background-color:peru;
+      color:rgb(7, 46, 7);
+      width:100%;
+      height:100px;
+      font-size:1em;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 20px;
+
+    }
+    button{
+      position:relative;
+      border-style: none;
+      background-color:transparent;
+      display:flex;
+      justify-content:center;
+    }
+    .plane{
+      height:20px;
+    }
+    .fa-android {
+  background: #a4c639;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}  
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa:hover {
+    width:300px;
+    transition: width 3s;
+}
+footer{
+  display:flex;
+  flex-direction: column;
+}
+
+
+
+
+      
+      
     </style>
   </head>
 
   <body>
     <header>
-      <img src="" alt="">
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+        <div>
+          <i class="fa-regular fa-broom-ball"></i>
+          <i class="fa-regular fa-bomb"></i>
+          <i class="fa-solid fa-dragon"></i>
+          <i class="fa-regular fa-fire"></i>
+          <i class="fa-regular fa-floppy-disk"></i>
+          <i class="fa-solid fa-ghost"></i>
+          <i class="fa-solid fa-golf-ball-tee"></i>
+          <i class="fa-solid fa-guitar"></i>
+          <i class="fa-solid fa-hand-sparkles"></i>
+          <i class="fa-solid fa-hand-spock"></i>
+          <i class="fa-solid fa-ice-cream"></i>
+          <i class="fa-solid fa-jedi"></i>
+          <i class="fa-solid fa-meteor"></i>
+          <i class="fa-solid fa-motorcycle"></i>
+          <i class="fa-solid fa-poo"></i>
+          <i class="fa-solid fa-poo-storm"></i>
+          <i class="fa-solid fa-socks"></i>
+          <i class="fa-solid fa-skull-crossbones"></i>
+          <i class="fa-solid fa-bath"></i>
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+      </div>
     </header>
-    <h1>GGreen</h1>
+    <main>
+      <div class="card">
+        <div class="circle"></div>
+        <div class="content">
+          <h2>ABOUT ME</h2>
+          <p>
+            As of now im a jr FullStack software developer in which ive sharpend
+            and honed my programming skills with <a href="https://devmountain.com/">Devmoutain</a> .Although, Im a
+            proficient full-stackdeveloer,my exprtise is in building scalable
+            animated Web Pages (FrontEnd).I love building things from
+            scratch.While hard engineering problems are intrinsically fun to
+            takle. Im attracted to creating and developing social interacitve
+            applications.
+           <a href="https://github.com/GeTtygreen?tab=repositories">GITHUB</a> 
+          </p>
+        </div>
+        <img src="img/greenlantern.png" alt="the green lantern comic hero" />
+         <!-- second card -->
+       
+      </div>
+      <div class="card">
+        <div class="circle"></div>
+        <div class="content">
+          <h2>Skills</h2>
+           <p>
+             <ul>
+               <li>HTML & CSS</li>
+               <li>JAVASCRIPT</li>
+               <li>NODE JS</li>
+               <li>EXPRESS</li>
+               <li>BOOTSTRAP</li>
+               <li>MYSQL</li>
+               <li>FIREBASE</li>
+               <li>GIT</li>
+               <li>AMAZON WEB SERVICES</li>
+               <li>BUILDING SERVERS</li>
+               <li>DEVELOPING APPLICATION UPGRADES</li>
+             </ul>
+
+         
+          </p>
+        </div>
+        <img src="img/storm2.png" alt="comic book character storm from XMEN" />
+<!-- THIRD CARD -->
+</div>
+<div class="card">
+  <div class="circle"></div>
+  <div class="content">
+    <h2>PROJECTS</h2>
+     <p>
+       <ul>
+         <li><a href="https://gettism.herokuapp.com">GETTISM</a></li>
+        This app is more of a new age word find game. So when it loads you have to find the 50 words throughout the scrolling field before the timer ends. if you shall succeed in this quest then you know you have some GETTISM in you .
+         <li><a href="http://www.itsupthere.info/">ItsUpThere</a></li>
+        This a social group flight booking app. Intended for friends ,families,couples and ect. to interact with others via messages & comments . Also, it is a revoulutionary approach to solving the problem of group trip planning ; it may not solve everthing but this app will get you one step closer.
+         
+       </ul>
+
+   
+    </p>
+  </div>
+  <img src="img/FALCON.png" alt="comic book character the FALCON" />
+  <!-- FOURTH CARD -->
+</div>
+<div class="card">
+  <div class="circle"></div>
+  <div class="content">
+    <h2>CONTACT</h2>
+      <form method="POST" action="https://formsubmit.co/gettygreenllc2020@gmail.com" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="company name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="subject of the matter. attach your company card or logo below"></textarea>
+        <input type="file" name="attachment" accept="image/png, image/jpeg">
+        <input type="hidden" name="_subject" value="EMAIL FROM A POTENTIAL EMPLOYER!">
+        <button type="submit"><i id="plane" class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+  <img src="img/MIIB.png" alt="men in black comic">
+    </main>
+    <footer>
+    <a href="#" class="fa fa-google"></a>
+    <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-android"></a>
+  </footer>
+    <script
+      src="https://kit.fontawesome.com/19f2b0a8ea.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
